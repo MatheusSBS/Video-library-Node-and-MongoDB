@@ -1,12 +1,12 @@
+const Video = require('../src/models/video')
 const { response } = require('express')
 const {v4: uuid} = require('uuid')
-const video = require('../src/models/video')
 
 module.exports = {
     async index(request, response) {
         try {
-            const videos = await video.find()
-            return response.status(200).json({ video })
+            const videos = await Video.find()
+            return response.status(200).json({ videos })
         } catch (err) {
             response.status(500).json({ error: err.message })
         }
