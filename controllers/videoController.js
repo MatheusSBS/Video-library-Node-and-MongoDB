@@ -18,7 +18,7 @@ module.exports = {
             return response.status(400).json({ error: "missing title or link."})
         }
 
-        const video = new video({
+        const video = new Video({
             _id: uuid(),
             title,
             link,
