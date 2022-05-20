@@ -60,5 +60,19 @@ module.exports = {
         } catch (err) {
             return response.status(500).json({ error: err.message })
         }
+    },
+
+    async updateLike(request, response) {
+        response.video.liked = !response.video.liked
+
+        try {
+            await response.video.save()
+            
+            return response.status(200).json({ message: `Video ${response.video.liked ? 'liked' : 'unliked' } successfully!` })
+        } catch (err) {
+            response.status(400).json({ error: err.message })
+             
+        }
+
     }
 }
