@@ -51,5 +51,14 @@ module.exports = {
         } catch (err) {
             response.status(500).json({ error: err.message })
         }         
+    },
+
+    async delete(request, response) {
+        try {
+            await response.video.remove()
+            return response.status(200).json({ message: 'Video deletd successfully!' })
+        } catch (err) {
+            return response.status(500).json({ error: err.message })
+        }
     }
 }
