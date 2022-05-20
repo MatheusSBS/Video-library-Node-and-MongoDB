@@ -8,5 +8,6 @@ routes.get('/videos', videoController.index)
 routes.post('/videos', videoController.store)
 
 routes.put('/videos/:id', videoMiddleware.valiidateID, videoController.update)
+routes.delete('/videos/:id', videoMiddleware.valiidateID, videoController.delete)
 
 module.exports = routes
