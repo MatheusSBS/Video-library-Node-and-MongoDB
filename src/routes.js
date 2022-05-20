@@ -10,4 +10,6 @@ routes.post('/videos', videoController.store)
 routes.put('/videos/:id', videoMiddleware.valiidateID, videoController.update)
 routes.delete('/videos/:id', videoMiddleware.valiidateID, videoController.delete)
 
+routes.patch('/videos/:id', videoMiddleware.valiidateID, videoController.updateLike)
+
 module.exports = routes
